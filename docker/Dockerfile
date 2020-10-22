@@ -1,5 +1,5 @@
 FROM alpine
-MAINTAINER Team ACID @ Zalando <team-acid@zalando.de>
+MAINTAINER Petter Sælen petter.saelen@politiet.no
 
 # We need root certificates to deal with teams api over https
 RUN apk --no-cache add ca-certificates
