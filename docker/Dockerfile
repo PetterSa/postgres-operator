@@ -2,6 +2,7 @@ FROM alpine
 MAINTAINER Petter Sælen petter.saelen@politiet.no
 
 # We need root certificates to deal with teams api over https
+RUN apk --no-cache add curl
 RUN apk --no-cache add ca-certificates
 
 COPY build/* /
