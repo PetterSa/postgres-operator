@@ -26,22 +26,22 @@ spec:
     - name: Image
       type: string
       description: Spilo image to be used for Pods
-      jsonPath: .configuration.docker_image
+      JSONPath: .configuration.docker_image
     - name: Cluster-Label
       type: string
       description: Label for K8s resources created by operator
-      jsonPath: .configuration.kubernetes.cluster_name_label
+      JSONPath: .configuration.kubernetes.cluster_name_label
     - name: Service-Account
       type: string
       description: Name of service account to be used
-      jsonPath: .configuration.kubernetes.pod_service_account_name
+      JSONPath: .configuration.kubernetes.pod_service_account_name
     - name: Min-Instances
       type: integer
       description: Minimum number of instances per Postgres cluster
-      jsonPath: .configuration.min_instances
+      JSONPath: .configuration.min_instances
     - name: Age
       type: date
-      jsonPath: .metadata.creationTimestamp
+      JSONPath: .metadata.creationTimestamp
     schema:
       openAPIV3Schema:
         type: object
@@ -49,15 +49,15 @@ spec:
           - kind
           - apiVersion
           - configuration
-        properties:
-          kind:
-            type: string
-            enum:
-            - OperatorConfiguration
-          apiVersion:
-            type: string
-            enum:
-            - acid.zalan.do/v1
+          properties:
+            kind:
+              type: string
+              enum:
+              - OperatorConfiguration
+            apiVersion:
+              type: string
+              enum:
+              - acid.zalan.do/v1
           configuration:
             type: object
             properties:
