@@ -15,8 +15,6 @@ spec:
     singular: postgresql
     shortNames:
     - pg
-    categories:
-    - all
   scope: Namespaced
   versions:
   - name: v1
@@ -59,7 +57,6 @@ spec:
     schema:
       openAPIV3Schema:
         type: object
-        x-preserve-unknown-fields: true
         required:
           - kind
           - apiVersion
@@ -323,7 +320,6 @@ spec:
                         - "10"
                         - "11"
                         - "12"
-                        - "13"
                     parameters:
                       type: object
                       additionalProperties:
