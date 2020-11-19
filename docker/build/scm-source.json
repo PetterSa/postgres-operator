@@ -1,0 +1,6 @@
+{
+ "url": "git:https://github.com/PetterSa/postgres-operator.git",
+ "revision": "580883bc",
+ "author": "gitpod",
+ "status": " M go.mod  M go.sum"
+}
