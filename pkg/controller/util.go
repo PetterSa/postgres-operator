@@ -341,7 +341,9 @@ func (c *Controller) getInfrastructureRole(
 				util.Coalesce(string(secretData[infraRole.RoleKey]), infraRole.DefaultRoleValue))
 		}
 
-		if !roleDescr.Valid() {
+		if roleDescr.Valid() {
+			roles = append(roles, *roleDescr)
+		} else {
 			msg := "infrastructure role %q is not complete and ignored"
 			c.logger.Warningf(msg, roleDescr)
 
