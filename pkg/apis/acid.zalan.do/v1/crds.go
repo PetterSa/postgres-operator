@@ -1235,12 +1235,6 @@ var OperatorConfigCRDResourceValidation = apiextv1beta1.CustomResourceValidation
 							"enable_admin_role_for_users": {
 								Type: "boolean",
 							},
-							"enable_postgres_team_crd": {
-								Type: "boolean",
-							},
-							"enable_postgres_team_crd_superusers": {
-								Type: "boolean",
-							},
 							"enable_team_superuser": {
 								Type: "boolean",
 							},

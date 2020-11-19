@@ -33,7 +33,6 @@ import (
 type AcidV1Interface interface {
 	RESTClient() rest.Interface
 	OperatorConfigurationsGetter
-	PostgresTeamsGetter
 	PostgresqlsGetter
 }
 
@@ -44,10 +43,6 @@ type AcidV1Client struct {
 
 func (c *AcidV1Client) OperatorConfigurations(namespace string) OperatorConfigurationInterface {
 	return newOperatorConfigurations(c, namespace)
-}
-
-func (c *AcidV1Client) PostgresTeams(namespace string) PostgresTeamInterface {
-	return newPostgresTeams(c, namespace)
 }
 
 func (c *AcidV1Client) Postgresqls(namespace string) PostgresqlInterface {
