@@ -225,7 +225,7 @@ func (c *Controller) processEvent(event ClusterEvent) {
 	switch event.EventType {
 	case EventAdd:
 		if clusterFound {
-			lg.Debugf("Recieved add event for existing cluster")
+			lg.Debugf("cluster already exists")
 			return
 		}
 

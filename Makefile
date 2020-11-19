@@ -24,14 +24,10 @@ PKG := `go list ./... | grep -v /vendor/`
 
 ifeq ($(DEBUG),1)
 	DOCKERFILE = DebugDockerfile
-	DEBUG_POSTFIX := -debug-$(shell date hhmmss)
+	DEBUG_POSTFIX := -debug
 	BUILD_FLAGS += -gcflags "-N -l"
 else
 	DOCKERFILE = Dockerfile
-endif
-
-ifeq ($(FRESH),1)
-  DEBUG_FRESH=$(shell date +"%H-%M-%S")
 endif
 
 ifdef CDP_PULL_REQUEST_NUMBER
@@ -70,7 +66,7 @@ docker: ${DOCKERDIR}/${DOCKERFILE} docker-context
 	echo "Version ${VERSION}"
 	echo "CDP tag ${CDP_TAG}"
 	echo "git describe $(shell git describe --tags --always --dirty)"
-	cd "${DOCKERDIR}" && docker build --rm -t "$(IMAGE):$(TAG)$(CDP_TAG)$(DEBUG_FRESH)$(DEBUG_POSTFIX)" -f "${DOCKERFILE}" .
+	cd "${DOCKERDIR}" && docker build --rm -t "$(IMAGE):$(TAG)$(CDP_TAG)$(DEBUG_POSTFIX)" -f "${DOCKERFILE}" .
 
 indocker-race:
 	docker run --rm -v "${GOPATH}":"${GOPATH}" -e GOPATH="${GOPATH}" -e RACE=1 -w ${PWD} golang:1.8.1 bash -c "make linux"
